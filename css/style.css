@@ -198,6 +198,18 @@ form button:hover,
     width: fit-content;
 }
 
+/* NOVO: Estilo para a seta de voltar ao topo */
+.scroll-up {
+    position: relative; /* Mantém a posição relativa como o scroll-down */
+    margin: 2rem auto 0 auto; /* Mesma margem superior para espaçamento */
+    font-size: 2rem; /* Mesmo tamanho */
+    color: #B6B09F; /* Mesma cor */
+    text-decoration: none;
+    animation: bounce 2s infinite; /* Mesma animação de bounce */
+    display: block;
+    width: fit-content;
+}
+
 section {
     scroll-margin-top: 3.5em;
 }
@@ -348,7 +360,8 @@ footer {
     }
 
     /* Ajuste do scroll-down para telas menores */
-    .scroll-down {
+    .scroll-down,
+    .scroll-up { /* Aplicando o ajuste para ambos os scroll-links */
         font-size: 1.8rem;
         margin-top: 1rem;
     }
