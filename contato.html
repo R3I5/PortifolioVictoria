@@ -2,41 +2,61 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Contato - [Nome da Artista]</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <title>Contato - Victoria Menezes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1>Entre em Contato</h1>
+        <h1>Victória Menezes</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="portfolio.html">Portfólio</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="index.html#inicio">Início</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#portfolio">Portfólio</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <form>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required />
+        <section id="contact-form-page">
+            <div class="section-container">
+                <div class="section-texto">
+                    <h2>Envie Sua Mensagem</h2>
+                    <p>Utilize o formulário abaixo para enviar sua mensagem diretamente. Responderei o mais breve possível!</p>
+                    <form action="#" method="POST"> <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required />
+                        <label for="email">Seu Melhor E-mail:</label>
+                        <input type="email" id="email" name="email" required>
 
-            <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" id="assunto" name="assunto">
 
-            <button type="submit">Enviar</button>
-        </form>
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="8" required></textarea>
+
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                    <p class="redes-sociais form-page-text">Você também pode se conectar diretamente pelas minhas redes sociais:</p>
+                    <div class="social-icons form-page-social">
+                        <a href="https://www.instagram.com/seuperfil" target="_blank"><img src="assets/icons/instagram.png" alt="Instagram"></a>
+                        <a href="https://www.linkedin.com/in/seuperfil" target="_blank"><img src="assets/icons/linkedin.png" alt="LinkedIn"></a>
+                        </div>
+                </div>
+                <div class="section-imagem">
+                    <img src="assets/images/form_contato_imagem.jpg" alt="Entre em Contato">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 [Nome da Artista]</p>
+        <p>&copy; 2025 Victoria Menezes. Todos os direitos reservados.</p>
+        <p class="mensagem-final">Obrigado pela sua visita!</p>
     </footer>
 </body>
 

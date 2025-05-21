@@ -1,22 +1,41 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Glacial Indifference', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
 }
 
-header,
-footer {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'League Spartan', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: #111;
     color: white;
-    padding: 1em;
+    padding: 0.5em 0; /* header menor */
     text-align: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -27,10 +46,75 @@ nav ul li {
 nav a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease; /* Transição suave para o hover */
+}
+
+nav a:hover {
+    color: #ffd700; /* Exemplo de cor ao passar o mouse */
 }
 
 main {
+    margin-top: 3em; /* espaço para o header fixo */
+    padding: 0; /* sem padding para as seções ocuparem 100vh */
+}
+
+section {
+    min-height: 100vh; /* Garante que a seção tenha no mínimo 100vh */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centraliza verticalmente */
+    align-items: center; /* centraliza horizontalmente */
     padding: 2em;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* Estilos para o contêiner de duas colunas, agora genérico */
+.section-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Proporção de colunas que você já usava */
+    align-items: center;
+    gap: 3em;
+    max-width: 1100px;
+    width: 100%;
+    padding: 1em; /* Um pouco de padding para o container interno */
+}
+
+/* Para alternar a ordem das colunas em seções específicas */
+#sobre .section-container,
+#contato .section-container {
+    grid-template-columns: 1fr 1.2fr; /* Inverte a ordem para imagem à esquerda e texto à direita */
+}
+
+
+.section-texto {
+    text-align: left;
+    /* flex: 1; Removido, pois grid cuida do layout */
+}
+
+.section-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+    color: #222; /* Um tom um pouco mais escuro para os títulos */
+}
+
+.section-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.section-imagem {
+    /* flex: 1; Removido, pois grid cuida do layout */
+    text-align: center;
+}
+
+.section-imagem img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 img,
@@ -44,4 +128,202 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    max-width: 400px; /* Limita a largura do formulário para melhor visualização */
+    margin-top: 1.5em; /* Espaço acima do formulário */
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 0.2em;
+    text-align: left; /* Alinha o label à esquerda */
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%; /* Garante que o input ocupe a largura total do formulário */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+}
+
+form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+form button,
+.button { /* Estilo para o botão e para o link com classe .button */
+    background-color: #111;
+    color: white;
+    padding: 0.8em 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Para a classe .button ser estilizada como link */
+    display: inline-block; /* Para o link se comportar como um botão */
+    text-align: center;
+}
+
+form button:hover,
+.button:hover {
+    background-color: #333;
+    transform: translateY(-2px); /* Pequeno efeito ao passar o mouse */
+}
+
+
+.scroll-down {
+    position: relative;
+    margin: 1rem auto 0 auto;
+    font-size: 2rem;
+    color: #333;
+    text-decoration: none;
+    animation: bounce 2s infinite;
+    display: block;
+    width: fit-content;
+}
+
+section {
+    scroll-margin-top: 3.5em;
+}
+
+/* Estilos para os ícones de redes sociais */
+.social-icons {
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    justify-content: flex-start; /* Alinha os ícones à esquerda */
+}
+
+.social-icons img {
+    width: 30px; /* Tamanho dos ícones */
+    height: 30px;
+    transition: transform 0.3s ease;
+    margin-bottom: 0; /* Remove a margem extra inferior de img */
+}
+
+.social-icons img:hover {
+    transform: translateY(-3px); /* Efeito ao passar o mouse */
+}
+
+.redes-sociais {
+    margin-top: 2em; /* Espaço acima do texto de redes sociais */
+    font-weight: bold;
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+footer {
+    background-color: #111;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .section-container {
+        grid-template-columns: 1fr; /* Uma única coluna em telas menores */
+        gap: 1.5em; /* Reduz o espaçamento */
+        padding: 1em; /* Ajusta o padding */
+    }
+
+    /* Mantém a imagem em cima e o texto embaixo em telas menores para todas as seções */
+    #sobre .section-container,
+    #portfolio .section-container,
+    #contato .section-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-texto,
+    .section-imagem {
+        text-align: center; /* Centraliza texto e imagem em telas menores */
+    }
+
+    .section-texto h2 {
+        font-size: 1.8rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .section-texto p {
+        font-size: 1em; /* Ajusta o tamanho da fonte */
+    }
+
+    nav ul li {
+        margin: 0 0.5em; /* Reduz a margem entre os itens do menu */
+    }
+
+    header {
+        padding: 0.8em 0; /* Ajusta o padding do header */
+    }
+
+    main {
+        margin-top: 4.5em; /* Ajusta a margem do main para o header maior em mobile */
+    }
+
+    section {
+        padding: 1.5em; /* Ajusta o padding das seções */
+        min-height: auto; /* Permite que a seção se ajuste ao conteúdo em telas pequenas */
+    }
+
+    form {
+        max-width: 100%; /* Formulário ocupa a largura total disponível */
+    }
+
+    .social-icons {
+        justify-content: center; /* Centraliza os ícones em telas menores */
+    }
+}
+
+/* ... (Seu CSS existente) ... */
+
+/* Ajustes para a página de contato dedicada (contato.html) */
+#contact-form-page {
+    /* Pode ter um padding extra ou um background diferente se quiser */
+    background-color: #f9f9f9; /* Um fundo levemente diferente para essa página */
+}
+
+#contact-form-page .section-container {
+    grid-template-columns: 1fr 1.2fr; /* Mantém a ordem imagem-texto se desejar */
+    /* Ou você pode inverter se preferir o texto à esquerda na página de formulário */
+    /* grid-template-columns: 1.2fr 1fr; */
+}
+
+/* Ajustes no formulário dentro de #contact-form-page */
+#contact-form-page form {
+    max-width: 500px; /* Alarga o formulário um pouco mais para a página dedicada */
+    margin: 2em auto; /* Centraliza o formulário */
+}
+
+/* Ajustes para o texto de redes sociais e ícones na página de formulário */
+.form-page-text {
+    margin-top: 2em; /* Espaço maior acima do texto */
+    text-align: center; /* Centraliza o texto */
+}
+
+.form-page-social {
+    justify-content: center; /* Centraliza os ícones */
+}
+
+/* Media Queries para Responsividade (ajuste o alinhamento dos links) */
+@media (max-width: 768px) {
+    /* ... (seu media query existente) ... */
+
+    #contact-form-page .section-container {
+        grid-template-columns: 1fr; /* Volta para uma coluna em telas pequenas */
+    }
+
+    #contact-form-page form {
+        max-width: 100%; /* Ocupa largura total em mobile */
+    }
 }
