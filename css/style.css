@@ -6,8 +6,8 @@ body {
     font-family: 'Glacial Indifference', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #F2F2F2; /* Aplicação da paleta: Fundo principal */
+    color: #000000; /* Aplicação da paleta: Cor do texto principal */
 }
 
 h1,
@@ -17,15 +17,22 @@ h4,
 h5,
 h6 {
     font-family: 'League Spartan', sans-serif;
+    /* REMOVIDO: color: #000000; para que h1 herde a cor do header */
 }
+
+/* Adicionando a cor para h2-h6 explicitamente onde necessário */
+h2, h3, h4, h5, h6 {
+    color: #000000; /* Títulos de seção em preto */
+}
+
 
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #111;
-    color: white;
+    background-color: #000000; /* Aplicação da paleta: Header em preto */
+    color: #F2F2F2; /* Aplicação da paleta: Texto do header em cinza muito claro */
     padding: 0.5em 0; /* header menor */
     text-align: center;
     z-index: 1000;
@@ -44,13 +51,13 @@ nav ul li {
 }
 
 nav a {
-    color: white;
+    color: #F2F2F2; /* Aplicação da paleta: Links do header em cinza muito claro */
     text-decoration: none;
     transition: color 0.3s ease; /* Transição suave para o hover */
 }
 
 nav a:hover {
-    color: #ffd700; /* Exemplo de cor ao passar o mouse */
+    color: #EAE4D5; /* Aplicação da paleta: Hover dos links do header em bege claro */
 }
 
 main {
@@ -67,7 +74,7 @@ section {
     padding: 2em;
     box-sizing: border-box;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #F2F2F2; /* Aplicação da paleta: Fundo das seções em cinza muito claro */
 }
 
 /* Estilos para o contêiner de duas colunas, agora genérico */
@@ -87,7 +94,6 @@ section {
     grid-template-columns: 1fr 1.2fr; /* Inverte a ordem para imagem à esquerda e texto à direita */
 }
 
-
 .section-texto {
     text-align: left;
     /* flex: 1; Removido, pois grid cuida do layout */
@@ -96,13 +102,14 @@ section {
 .section-texto h2 {
     font-size: 2rem;
     margin-bottom: 0.5em;
-    color: #222; /* Um tom um pouco mais escuro para os títulos */
+    color: #000000; /* Aplicação da paleta: Títulos de seção em preto */
 }
 
 .section-texto p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1em;
+    color: #000000; /* Aplicação da paleta: Texto de parágrafo em preto */
 }
 
 .section-imagem {
@@ -136,17 +143,21 @@ form label {
     font-weight: bold;
     margin-bottom: 0.2em;
     text-align: left; /* Alinha o label à esquerda */
+    color: #000000; /* Aplicação da paleta: Labels do formulário em preto */
 }
 
 form input[type="text"],
 form input[type="email"],
+form input[type="assunto"], /* Adicionada a regra para o input de assunto */
 form textarea {
     padding: 0.8em;
-    border: 1px solid #ccc;
+    border: 1px solid #B6B09F; /* Aplicação da paleta: Bordas dos campos em cinza-bege */
     border-radius: 5px;
     font-size: 1em;
     width: 100%; /* Garante que o input ocupe a largura total do formulário */
     box-sizing: border-box; /* Inclui padding e borda na largura total */
+    color: #000000; /* Aplicação da paleta: Texto digitado nos campos em preto */
+    background-color: #F2F2F2; /* Aplicação da paleta: Fundo dos campos em cinza muito claro */
 }
 
 form textarea {
@@ -154,9 +165,9 @@ form textarea {
 }
 
 form button,
-.button { /* Estilo para o botão e para o link com classe .button */
-    background-color: #111;
-    color: white;
+.button { /* Estilo para o botão e para o link com classe .button. Removido .button-small */
+    background-color: #000000; /* Aplicação da paleta: Fundo dos botões em preto */
+    color: #F2F2F2; /* Aplicação da paleta: Texto dos botões em cinza muito claro */
     padding: 0.8em 1.5em;
     border: none;
     border-radius: 5px;
@@ -166,20 +177,21 @@ form button,
     text-decoration: none; /* Para a classe .button ser estilizada como link */
     display: inline-block; /* Para o link se comportar como um botão */
     text-align: center;
+    margin-top: 1.5em; /* Espaçamento acima do botão */
 }
 
 form button:hover,
 .button:hover {
-    background-color: #333;
+    background-color: #B6B09F; /* Aplicação da paleta: Hover dos botões em cinza-bege */
+    color: #000000; /* Texto dos botões em preto no hover */
     transform: translateY(-2px); /* Pequeno efeito ao passar o mouse */
 }
 
-
 .scroll-down {
     position: relative;
-    margin: 1rem auto 0 auto;
+    margin: 2rem auto 0 auto; /* Ajuste da margem superior para mais espaçamento */
     font-size: 2rem;
-    color: #333;
+    color: #B6B09F; /* Aplicação da paleta: Seta de rolagem em cinza-bege */
     text-decoration: none;
     animation: bounce 2s infinite;
     display: block;
@@ -188,6 +200,36 @@ form button:hover,
 
 section {
     scroll-margin-top: 3.5em;
+}
+
+/* Estilos para informações de contato (email, telefone) - Adicionado */
+.contact-info {
+    margin-top: 1.5em;
+    text-align: left;
+}
+
+.contact-info p {
+    margin-bottom: 0.8em;
+    font-size: 1.1em;
+}
+
+.contact-link {
+    display: flex; /* Para alinhar o ícone e o texto */
+    align-items: center;
+    gap: 0.8em;
+    color: #000000; /* Aplicação da paleta: Links de contato em preto */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #B6B09F; /* Aplicação da paleta: Hover dos links de contato em cinza-bege */
+}
+
+.contact-link img {
+    width: 25px; /* Tamanho dos ícones de contato */
+    height: 25px;
+    margin-bottom: 0; /* Remove margem padrão de img */
 }
 
 /* Estilos para os ícones de redes sociais */
@@ -212,8 +254,18 @@ section {
 .redes-sociais {
     margin-top: 2em; /* Espaço acima do texto de redes sociais */
     font-weight: bold;
+    color: #000000; /* Aplicação da paleta: Texto de redes sociais em preto */
 }
 
+/* Ajustes para o link para o formulário (removido, pois o botão .button agora é usado) */
+.form-link-text {
+    /* Esta classe pode ser removida se não for mais usada no HTML */
+    /* margin-top: 2em; */
+    /* font-size: 1em; */
+    /* text-align: left; */
+    /* color: #000000; */
+    display: none; /* Ou simplesmente remova essa regra se não houver mais elementos com essa classe */
+}
 
 @keyframes bounce {
     0%, 100% {
@@ -225,8 +277,8 @@ section {
 }
 
 footer {
-    background-color: #111;
-    color: white;
+    background-color: #000000; /* Aplicação da paleta: Footer em preto */
+    color: #F2F2F2; /* Aplicação da paleta: Texto do footer em cinza muito claro */
     padding: 1em;
     text-align: center;
 }
@@ -242,7 +294,8 @@ footer {
     /* Mantém a imagem em cima e o texto embaixo em telas menores para todas as seções */
     #sobre .section-container,
     #portfolio .section-container,
-    #contato .section-container {
+    #contato .section-container,
+    #contact-form-page .section-container { /* Adicionado para a página de contato também */
         grid-template-columns: 1fr;
     }
 
@@ -283,20 +336,31 @@ footer {
     .social-icons {
         justify-content: center; /* Centraliza os ícones em telas menores */
     }
-}
 
-/* ... (Seu CSS existente) ... */
+    /* Adicionado para responsividade dos links de contato */
+    .contact-info,
+    .form-link-text {
+        text-align: center; /* Centraliza em telas pequenas */
+    }
+
+    .contact-link {
+        justify-content: center; /* Centraliza ícone e texto do link de contato */
+    }
+
+    /* Ajuste do scroll-down para telas menores */
+    .scroll-down {
+        font-size: 1.8rem;
+        margin-top: 1rem;
+    }
+}
 
 /* Ajustes para a página de contato dedicada (contato.html) */
 #contact-form-page {
-    /* Pode ter um padding extra ou um background diferente se quiser */
-    background-color: #f9f9f9; /* Um fundo levemente diferente para essa página */
+    background-color: #F2F2F2; /* Aplicação da paleta: Fundo da página de formulário em cinza muito claro */
 }
 
 #contact-form-page .section-container {
     grid-template-columns: 1fr 1.2fr; /* Mantém a ordem imagem-texto se desejar */
-    /* Ou você pode inverter se preferir o texto à esquerda na página de formulário */
-    /* grid-template-columns: 1.2fr 1fr; */
 }
 
 /* Ajustes no formulário dentro de #contact-form-page */
@@ -309,6 +373,7 @@ footer {
 .form-page-text {
     margin-top: 2em; /* Espaço maior acima do texto */
     text-align: center; /* Centraliza o texto */
+    color: #000000; /* Aplicação da paleta: Texto de redes sociais na página de formulário em preto */
 }
 
 .form-page-social {
@@ -317,8 +382,6 @@ footer {
 
 /* Media Queries para Responsividade (ajuste o alinhamento dos links) */
 @media (max-width: 768px) {
-    /* ... (seu media query existente) ... */
-
     #contact-form-page .section-container {
         grid-template-columns: 1fr; /* Volta para uma coluna em telas pequenas */
     }
