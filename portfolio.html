@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Portfólio - [Nome da Artista]</title>
+    <title>Portfólio - Victória Menezes</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&family=League+Spartan:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -13,28 +15,159 @@
         <h1>Meus Trabalhos</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="index.html#inicio">Início</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
                 <li><a href="portfolio.html">Portfólio</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>Fotografia</h2>
-            <img src="assets/imagens/foto1.jpg" alt="Foto 1">
-            <img src="assets/imagens/foto2.jpg" alt="Foto 2">
-
-            <h2>Vídeos</h2>
-            <video controls src="assets/videos/video1.mp4"></video>
+        <section id="top" class="portfolio-section">
+            <div class="section-container">
+                <div class="section-texto">
+                    <h2>Uma Janela para Minha Arte</h2>
+                    <p>Aqui você encontrará uma amostra dos meus projetos mais recentes e significativos em fotografia e
+                        produção audiovisual. Cada trabalho é uma parte da minha jornada criativa e um reflexo da minha
+                        paixão por contar histórias através das lentes.</p>
+                    <p>Explore os projetos abaixo e mergulhe em diferentes mundos visuais.</p>
+                </div>
+            </div>
         </section>
+
+        <section id="projeto-retrato" class="portfolio-section">
+            <div class="section-container">
+                <div class="section-texto">
+                    <h2>Retratos & Moda</h2>
+                    <p>Uma série de retratos que explora a fusão entre a beleza natural e a arte da maquiagem. Cada
+                        imagem busca capturar a essência e a expressividade dos modelos, realçando texturas e cores.</p>
+                    <p>Este projeto destaca a importância da iluminação e da composição na criação de narrativas visuais
+                        impactantes para o universo da moda e da beleza.</p>
+                    <a href="#modal-retrato" class="button">Ver Projeto Detalhado</a>
+                </div>
+                <div class="portfolio-media-card">
+                    <img src="assets/images/projetosCards/maquiagem.jpeg" alt="Série de Retratos e Moda">
+                    <p class="media-caption">Série de Retratos e Moda (2024)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projeto-iluminacao" class="portfolio-section">
+            <div class="section-container reverse-columns">
+                <div class="portfolio-media-card">
+                    <img src="assets/images/projetosCards/iluminacao.jpeg" alt="Estudo de Iluminação Cênica">
+                    <p class="media-caption">Estudo de Iluminação Cênica (2023)</p>
+                </div>
+                <div class="section-texto">
+                    <h2>Estudo de Iluminação Cênica</h2>
+                    <p>Este trabalho mergulha nas complexidades da iluminação em ambientes controlados, explorando como
+                        a luz pode moldar a atmosfera e a percepção de uma cena. O foco foi na criação de efeitos
+                        dramáticos e na valorização de texturas através de diferentes fontes e cores de luz.</p>
+                    <p>Um aprendizado prático sobre a manipulação da luz para storytelling.</p>
+                    <a href="#modal-iluminacao" class="button">Ver Projeto Detalhado</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projeto-curta" class="portfolio-section">
+            <div class="section-container">
+                <div class="section-texto">
+                    <h2>Curta-metragem "Ainda é tempo?"</h2>
+                    <p>Minha experiência como diretora, roteirista e editora neste curta-metragem dramático. A narrativa
+                        introspectiva busca explorar temas de autodescoberta e resiliência, utilizando uma linguagem
+                        visual e sonora que amplifica as emoções dos personagens.</p>
+                    <p>Um trabalho desafiador que me permitiu aplicar e aprimorar diversas habilidades da
+                        cinematografia.</p>
+                    <a href="#modal-curta" class="button">Ver Projeto Detalhado</a>
+                </div>
+                <div class="portfolio-media-card video-card">
+                    <iframe src="https://www.youtube.com/embed/hkr458_sDwA?si=kH-hib3L1bmRpd8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p class="media-caption">Curta-metragem "Ainda é tempo?" (2024)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projeto-videoclipe" class="portfolio-section">
+            <div class="section-container reverse-columns">
+                <div class="portfolio-media-card video-card">
+                    <iframe src="https://www.youtube.com/embed/CVT1C705tJg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p class="media-caption">Videoclipe "Ritmo da Alma" (2023)</p>
+                </div>
+                <div class="section-texto">
+                    <h2>Videoclipe "Ritmo da Alma"</h2>
+                    <p>Participei ativamente na direção de fotografia e edição deste videoclipe para uma banda
+                        independente. O objetivo foi criar uma estética visual que complementasse a energia da música,
+                        utilizando técnicas de câmera dinâmicas e uma pós-produção que realçasse o tom da canção.</p>
+                    <p>Um projeto vibrante que demonstrou a capacidade de traduzir som em imagem.</p>
+                    <a href="#modal-videoclipe" class="button">Ver Projeto Detalhado</a>
+                </div>
+            </div>
+        </section>
+
+        <a href="#top" class="scroll-up">▲</a>
     </main>
 
     <footer>
-        <p>&copy; 2025 [Nome da Artista]</p>
+        <p>© 2025 Victória Menezes. Todos os direitos reservados.</p>
     </footer>
+
+    <div id="modal-retrato" class="modal-css">
+        <div class="modal-css-content">
+            <a href="#projeto-retrato" class="close-button-css">×</a>
+            <h3>Retratos & Moda</h3>
+            <div class="modal-gallery-css">
+                <img src="assets/images/projetosCards/maquiagem.jpeg" alt="Série de Retratos e Moda">
+                <img src="assets/images/projetosCards/retrato_extra_1.jpeg" alt="Retrato Detalhe 1">
+                <img src="assets/images/projetosCards/retrato_extra_2.jpeg" alt="Retrato Detalhe 2">
+            </div>
+            <p class="modal-css-caption">Uma série de retratos explorando beleza e expressão.</p>
+            <p class="modal-css-description">Detalhes adicionais sobre o projeto de Retratos & Moda. Este projeto foi um desafio para capturar a luz natural e a personalidade de cada modelo.</p>
+        </div>
+    </div>
+
+    <div id="modal-iluminacao" class="modal-css">
+        <div class="modal-css-content">
+            <a href="#projeto-iluminacao" class="close-button-css">×</a>
+            <h3>Estudo de Iluminação Cênica</h3>
+            <div class="modal-gallery-css">
+                <img src="assets/images/projetosCards/iluminacao.jpeg" alt="Estudo de Iluminação Cênica">
+                <img src="assets/images/projetosCards/iluminacao_extra_1.jpeg" alt="Iluminação Detalhe 1">
+                <img src="assets/images/projetosCards/iluminacao_extra_2.jpeg" alt="Iluminação Detalhe 2">
+            </div>
+            <p class="modal-css-caption">Análise e aplicação de técnicas de luz em palco.</p>
+            <p class="modal-css-description">Detalhes adicionais sobre o projeto de Iluminação Cênica. Este estudo focou em como a luz pode criar diferentes atmosferas e emoções em um ambiente cênico.</p>
+        </div>
+    </div>
+
+    <div id="modal-curta" class="modal-css">
+        <div class="modal-css-content">
+            <a href="#projeto-curta" class="close-button-css">×</a>
+            <h3>Curta-metragem "O Despertar"</h3>
+            <div class="modal-gallery-css">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <img src="assets/images/projetosCards/curta_extra_1.jpeg" alt="Curta-metragem Detalhe 1">
+                <img src="assets/images/projetosCards/curta_extra_2.jpeg" alt="Curta-metragem Detalhe 2">
+            </div>
+            <p class="modal-css-caption">Minha direção, roteiro e edição em um curta-metragem.</p>
+            <p class="modal-css-description">Detalhes adicionais sobre "O Despertar". A criação deste curta foi uma experiência intensa e gratificante, explorando narrativas complexas e a profundidade dos personagens.</p>
+        </div>
+    </div>
+
+    <div id="modal-videoclipe" class="modal-css">
+        <div class="modal-css-content">
+            <a href="#projeto-videoclipe" class="close-button-css">×</a>
+            <h3>Videoclipe "Ritmo da Alma"</h3>
+            <div class="modal-gallery-css">
+                <iframe src="https://www.youtube.com/embed/CVT1C705tJg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <img src="assets/images/projetosCards/videoclipe_extra_1.jpeg" alt="Videoclipe Detalhe 1">
+                <img src="assets/images/projetosCards/videoclipe_extra_2.jpeg" alt="Videoclipe Detalhe 2">
+            </div>
+            <p class="modal-css-caption">Direção de fotografia e edição para uma banda independente.</p>
+            <p class="modal-css-description">Detalhes adicionais sobre "Ritmo da Alma". Este videoclipe foi um exercício de criatividade, transformando a energia da música em uma experiência visual impactante.</p>
+        </div>
+    </div>
+
 </body>
 
 </html>

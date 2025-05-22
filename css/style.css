@@ -6,8 +6,10 @@ body {
     font-family: 'Glacial Indifference', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F2F2F2; /* Aplicação da paleta: Fundo principal */
-    color: #000000; /* Aplicação da paleta: Cor do texto principal */
+    background-color: #F2F2F2;
+    /* Aplicação da paleta: Fundo principal */
+    color: #000000;
+    /* Aplicação da paleta: Cor do texto principal */
 }
 
 h1,
@@ -17,26 +19,30 @@ h4,
 h5,
 h6 {
     font-family: 'League Spartan', sans-serif;
-    /* REMOVIDO: color: #000000; para que h1 herde a cor do header */
 }
 
-/* Adicionando a cor para h2-h6 explicitamente onde necessário */
-h2, h3, h4, h5, h6 {
-    color: #000000; /* Títulos de seção em preto */
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #000000;
+    /* Títulos de seção em preto */
 }
-
 
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #000000; /* Aplicação da paleta: Header em preto */
-    color: #F2F2F2; /* Aplicação da paleta: Texto do header em cinza muito claro */
-    padding: 0.5em 0; /* header menor */
+    background-color: #000000;
+    /* Aplicação da paleta: Header em preto */
+    color: #F2F2F2;
+    /* Aplicação da paleta: Texto do header em cinza muito claro */
+    padding: 0.5em 0;
     text-align: center;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 nav ul {
@@ -51,69 +57,73 @@ nav ul li {
 }
 
 nav a {
-    color: #F2F2F2; /* Aplicação da paleta: Links do header em cinza muito claro */
+    color: #F2F2F2;
+    /* Aplicação da paleta: Links do header em cinza muito claro */
     text-decoration: none;
-    transition: color 0.3s ease; /* Transição suave para o hover */
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #EAE4D5; /* Aplicação da paleta: Hover dos links do header em bege claro */
+    color: #EAE4D5;
+    /* Aplicação da paleta: Hover dos links do header em bege claro */
 }
 
 main {
-    margin-top: 3em; /* espaço para o header fixo */
-    padding: 0; /* sem padding para as seções ocuparem 100vh */
+    margin-top: 3em;
+    padding: 0;
 }
 
 section {
-    min-height: 100vh; /* Garante que a seção tenha no mínimo 100vh */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centraliza verticalmente */
-    align-items: center; /* centraliza horizontalmente */
+    justify-content: center;
+    align-items: center;
     padding: 2em;
     box-sizing: border-box;
-    text-align: center;
-    background-color: #F2F2F2; /* Aplicação da paleta: Fundo das seções em cinza muito claro */
+    background-color: #F2F2F2;
 }
 
-/* Estilos para o contêiner de duas colunas, agora genérico */
 .section-container {
     display: grid;
-    grid-template-columns: 1.2fr 1fr; /* Proporção de colunas que você já usava */
+    grid-template-columns: 1.2fr 1fr;
+    /* Texto (maior) e mídia (menor) */
     align-items: center;
     gap: 3em;
     max-width: 1100px;
     width: 100%;
-    padding: 1em; /* Um pouco de padding para o container interno */
+    padding: 1em;
 }
 
-/* Para alternar a ordem das colunas em seções específicas */
 #sobre .section-container,
 #contato .section-container {
-    grid-template-columns: 1fr 1.2fr; /* Inverte a ordem para imagem à esquerda e texto à direita */
+    grid-template-columns: 1fr 1.2fr;
+    /* Inverte a ordem para imagem à esquerda */
+}
+
+.section-container.reverse-columns {
+    grid-template-columns: 1fr 1.2fr;
+    /* Inverte para mídia à esquerda */
 }
 
 .section-texto {
     text-align: left;
-    /* flex: 1; Removido, pois grid cuida do layout */
 }
 
 .section-texto h2 {
     font-size: 2rem;
     margin-bottom: 0.5em;
-    color: #000000; /* Aplicação da paleta: Títulos de seção em preto */
+    color: #000000;
 }
 
 .section-texto p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1em;
-    color: #000000; /* Aplicação da paleta: Texto de parágrafo em preto */
+    color: #000000;
 }
 
 .section-imagem {
-    /* flex: 1; Removido, pois grid cuida do layout */
     text-align: center;
 }
 
@@ -135,77 +145,76 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    max-width: 400px; /* Limita a largura do formulário para melhor visualização */
-    margin-top: 1.5em; /* Espaço acima do formulário */
+    max-width: 400px;
+    margin-top: 1.5em;
 }
 
 form label {
     font-weight: bold;
     margin-bottom: 0.2em;
-    text-align: left; /* Alinha o label à esquerda */
-    color: #000000; /* Aplicação da paleta: Labels do formulário em preto */
+    text-align: left;
+    color: #000000;
 }
 
 form input[type="text"],
 form input[type="email"],
-form input[type="assunto"], /* Adicionada a regra para o input de assunto */
+form input[type="assunto"],
 form textarea {
     padding: 0.8em;
-    border: 1px solid #B6B09F; /* Aplicação da paleta: Bordas dos campos em cinza-bege */
+    border: 1px solid #B6B09F;
     border-radius: 5px;
     font-size: 1em;
-    width: 100%; /* Garante que o input ocupe a largura total do formulário */
-    box-sizing: border-box; /* Inclui padding e borda na largura total */
-    color: #000000; /* Aplicação da paleta: Texto digitado nos campos em preto */
-    background-color: #F2F2F2; /* Aplicação da paleta: Fundo dos campos em cinza muito claro */
+    width: 100%;
+    box-sizing: border-box;
+    color: #000000;
+    background-color: #F2F2F2;
 }
 
 form textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
+    resize: vertical;
 }
 
 form button,
-.button { /* Estilo para o botão e para o link com classe .button. Removido .button-small */
-    background-color: #000000; /* Aplicação da paleta: Fundo dos botões em preto */
-    color: #F2F2F2; /* Aplicação da paleta: Texto dos botões em cinza muito claro */
+.button {
+    background-color: #000000;
+    color: #F2F2F2;
     padding: 0.8em 1.5em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    text-decoration: none; /* Para a classe .button ser estilizada como link */
-    display: inline-block; /* Para o link se comportar como um botão */
+    text-decoration: none;
+    display: inline-block;
     text-align: center;
-    margin-top: 1.5em; /* Espaçamento acima do botão */
+    margin-top: 1.5em;
 }
 
 form button:hover,
 .button:hover {
-    background-color: #B6B09F; /* Aplicação da paleta: Hover dos botões em cinza-bege */
-    color: #000000; /* Texto dos botões em preto no hover */
-    transform: translateY(-2px); /* Pequeno efeito ao passar o mouse */
+    background-color: #B6B09F;
+    color: #000000;
+    transform: translateY(-2px);
 }
 
 .scroll-down {
     position: relative;
-    margin: 2rem auto 0 auto; /* Ajuste da margem superior para mais espaçamento */
+    margin: 2rem auto 0 auto;
     font-size: 2rem;
-    color: #B6B09F; /* Aplicação da paleta: Seta de rolagem em cinza-bege */
+    color: #B6B09F;
     text-decoration: none;
     animation: bounce 2s infinite;
     display: block;
     width: fit-content;
 }
 
-/* NOVO: Estilo para a seta de voltar ao topo */
 .scroll-up {
-    position: relative; /* Mantém a posição relativa como o scroll-down */
-    margin: 2rem auto 0 auto; /* Mesma margem superior para espaçamento */
-    font-size: 2rem; /* Mesmo tamanho */
-    color: #B6B09F; /* Mesma cor */
+    position: relative;
+    margin: 2rem auto 0 auto;
+    font-size: 2rem;
+    color: #B6B09F;
     text-decoration: none;
-    animation: bounce 2s infinite; /* Mesma animação de bounce */
+    animation: bounce 2s infinite;
     display: block;
     width: fit-content;
 }
@@ -214,7 +223,6 @@ section {
     scroll-margin-top: 3.5em;
 }
 
-/* Estilos para informações de contato (email, telefone) - Adicionado */
 .contact-info {
     margin-top: 1.5em;
     text-align: left;
@@ -226,71 +234,67 @@ section {
 }
 
 .contact-link {
-    display: flex; /* Para alinhar o ícone e o texto */
+    display: flex;
     align-items: center;
     gap: 0.8em;
-    color: #000000; /* Aplicação da paleta: Links de contato em preto */
+    color: #000000;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .contact-link:hover {
-    color: #B6B09F; /* Aplicação da paleta: Hover dos links de contato em cinza-bege */
+    color: #B6B09F;
 }
 
 .contact-link img {
-    width: 25px; /* Tamanho dos ícones de contato */
+    width: 25px;
     height: 25px;
-    margin-bottom: 0; /* Remove margem padrão de img */
+    margin-bottom: 0;
 }
 
-/* Estilos para os ícones de redes sociais */
 .social-icons {
     margin-top: 1em;
     display: flex;
     gap: 1em;
-    justify-content: flex-start; /* Alinha os ícones à esquerda */
+    justify-content: flex-start;
 }
 
 .social-icons img {
-    width: 30px; /* Tamanho dos ícones */
+    width: 30px;
     height: 30px;
     transition: transform 0.3s ease;
-    margin-bottom: 0; /* Remove a margem extra inferior de img */
+    margin-bottom: 0;
 }
 
 .social-icons img:hover {
-    transform: translateY(-3px); /* Efeito ao passar o mouse */
+    transform: translateY(-3px);
 }
 
 .redes-sociais {
-    margin-top: 2em; /* Espaço acima do texto de redes sociais */
+    margin-top: 2em;
     font-weight: bold;
-    color: #000000; /* Aplicação da paleta: Texto de redes sociais em preto */
+    color: #000000;
 }
 
-/* Ajustes para o link para o formulário (removido, pois o botão .button agora é usado) */
 .form-link-text {
-    /* Esta classe pode ser removida se não for mais usada no HTML */
-    /* margin-top: 2em; */
-    /* font-size: 1em; */
-    /* text-align: left; */
-    /* color: #000000; */
-    display: none; /* Ou simplesmente remova essa regra se não houver mais elementos com essa classe */
+    display: none;
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(10px);
     }
 }
 
 footer {
-    background-color: #000000; /* Aplicação da paleta: Footer em preto */
-    color: #F2F2F2; /* Aplicação da paleta: Texto do footer em cinza muito claro */
+    background-color: #000000;
+    color: #F2F2F2;
     padding: 1em;
     text-align: center;
 }
@@ -298,70 +302,65 @@ footer {
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
     .section-container {
-        grid-template-columns: 1fr; /* Uma única coluna em telas menores */
-        gap: 1.5em; /* Reduz o espaçamento */
-        padding: 1em; /* Ajusta o padding */
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        padding: 1em;
     }
 
-    /* Mantém a imagem em cima e o texto embaixo em telas menores para todas as seções */
-    #sobre .section-container,
-    #portfolio .section-container,
-    #contato .section-container,
-    #contact-form-page .section-container { /* Adicionado para a página de contato também */
+    .section-container.reverse-columns {
         grid-template-columns: 1fr;
     }
 
     .section-texto,
     .section-imagem {
-        text-align: center; /* Centraliza texto e imagem em telas menores */
+        text-align: center;
     }
 
     .section-texto h2 {
-        font-size: 1.8rem; /* Ajusta o tamanho da fonte */
+        font-size: 1.8rem;
     }
 
     .section-texto p {
-        font-size: 1em; /* Ajusta o tamanho da fonte */
+        font-size: 1em;
+        text-align: center;
     }
 
     nav ul li {
-        margin: 0 0.5em; /* Reduz a margem entre os itens do menu */
+        margin: 0 0.5em;
     }
 
     header {
-        padding: 0.8em 0; /* Ajusta o padding do header */
+        padding: 0.8em 0;
     }
 
     main {
-        margin-top: 4.5em; /* Ajusta a margem do main para o header maior em mobile */
+        margin-top: 4.5em;
     }
 
     section {
-        padding: 1.5em; /* Ajusta o padding das seções */
-        min-height: auto; /* Permite que a seção se ajuste ao conteúdo em telas pequenas */
+        padding: 1.5em;
+        min-height: auto;
     }
 
     form {
-        max-width: 100%; /* Formulário ocupa a largura total disponível */
+        max-width: 100%;
     }
 
     .social-icons {
-        justify-content: center; /* Centraliza os ícones em telas menores */
+        justify-content: center;
     }
 
-    /* Adicionado para responsividade dos links de contato */
     .contact-info,
     .form-link-text {
-        text-align: center; /* Centraliza em telas pequenas */
+        text-align: center;
     }
 
     .contact-link {
-        justify-content: center; /* Centraliza ícone e texto do link de contato */
+        justify-content: center;
     }
 
-    /* Ajuste do scroll-down para telas menores */
     .scroll-down,
-    .scroll-up { /* Aplicando o ajuste para ambos os scroll-links */
+    .scroll-up {
         font-size: 1.8rem;
         margin-top: 1rem;
     }
@@ -369,37 +368,435 @@ footer {
 
 /* Ajustes para a página de contato dedicada (contato.html) */
 #contact-form-page {
-    background-color: #F2F2F2; /* Aplicação da paleta: Fundo da página de formulário em cinza muito claro */
+    background-color: #F2F2F2;
 }
 
 #contact-form-page .section-container {
-    grid-template-columns: 1fr 1.2fr; /* Mantém a ordem imagem-texto se desejar */
+    grid-template-columns: 1fr 1.2fr;
 }
 
-/* Ajustes no formulário dentro de #contact-form-page */
 #contact-form-page form {
-    max-width: 500px; /* Alarga o formulário um pouco mais para a página dedicada */
-    margin: 2em auto; /* Centraliza o formulário */
+    max-width: 500px;
+    margin: 2em auto;
 }
 
-/* Ajustes para o texto de redes sociais e ícones na página de formulário */
 .form-page-text {
-    margin-top: 2em; /* Espaço maior acima do texto */
-    text-align: center; /* Centraliza o texto */
-    color: #000000; /* Aplicação da paleta: Texto de redes sociais na página de formulário em preto */
+    margin-top: 2em;
+    text-align: center;
+    color: #000000;
 }
 
 .form-page-social {
-    justify-content: center; /* Centraliza os ícones */
+    justify-content: center;
 }
 
-/* Media Queries para Responsividade (ajuste o alinhamento dos links) */
 @media (max-width: 768px) {
     #contact-form-page .section-container {
-        grid-template-columns: 1fr; /* Volta para uma coluna em telas pequenas */
+        grid-template-columns: 1fr;
     }
 
     #contact-form-page form {
-        max-width: 100%; /* Ocupa largura total em mobile */
+        max-width: 100%;
+    }
+}
+
+
+/* --- ESTILOS ESPECÍFICOS DO PORTFÓLIO --- */
+
+.portfolio-section {
+    min-height: auto;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+/* GARANTE A CENTRALIZAÇÃO DO TEXTO INTRODUTÓRIO NO PORTFÓLIO */
+#top.portfolio-section .section-container {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#top.portfolio-section .section-texto {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#top.portfolio-section .section-texto h2,
+#top.portfolio-section .section-texto p {
+    text-align: center;
+}
+
+
+/* Estilo para o container de mídia (imagem/vídeo) que é o "card" */
+.portfolio-media-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: fit-content;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.portfolio-media-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-media-card img {
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.8em;
+    box-shadow: none;
+}
+
+/* Estilo para vídeos incorporados dentro do card */
+.portfolio-media-card.video-card iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 0.8em;
+}
+
+/* Estilo para a legenda da mídia */
+.media-caption {
+    font-size: 0.9em;
+    color: #555555;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Ajustes para o h2 nas seções de projeto (não a introdutória) */
+.portfolio-section .section-texto h2 {
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+/* Media Queries para responsividade específica do portfólio */
+@media (max-width: 768px) {
+
+    .portfolio-media-card img,
+    .portfolio-media-card.video-card iframe {
+        height: 220px;
+    }
+
+    .portfolio-section {
+        padding-top: 2.5em;
+        padding-bottom: 2.5em;
+    }
+
+    #top.portfolio-section .section-texto {
+        text-align: center;
+    }
+}
+
+/* --- Estilos para o Modal/Lightbox (CSS Puro) --- */
+.modal-css {
+    visibility: hidden;
+    /* Escondido por padrão */
+    opacity: 0;
+    /* Começa transparente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fundo preto semi-transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Quando o modal é "alvo" da URL (clicado) */
+.modal-css:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-css-content {
+    background-color: #fefefe;
+    padding: 2em;
+    border-radius: 10px;
+    max-width: 80%;
+    /* Largura máxima do card */
+    max-height: 90%;
+    /* Altura máxima do card */
+    overflow-y: auto;
+    /* Permite rolagem dentro do card se o conteúdo for grande */
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    /* Centraliza o texto dentro do modal content */
+    display: flex;
+    /* Para centralizar os itens internos */
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-button-css {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    /* Remover sublinhado do link */
+    transition: color 0.3s ease;
+    z-index: 10;
+    /* Para garantir que fique acima do conteúdo */
+}
+
+.close-button-css:hover,
+.close-button-css:focus {
+    color: #000;
+}
+
+.modal-css-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1em;
+    color: #000000;
+}
+
+.modal-gallery-css {
+    display: flex;
+    flex-direction: column;
+    /* Imagens uma abaixo da outra */
+    align-items: center;
+    gap: 1.5em;
+    /* Espaço entre as imagens */
+    width: 100%;
+    max-width: 700px;
+    /* Limita a largura da galeria */
+    margin-bottom: 1.5em;
+}
+
+.modal-gallery-css img {
+    max-width: 100%;
+    height: auto;
+    /* Altura flexível para imagens no modal */
+    max-height: 500px;
+    /* Limita a altura das imagens */
+    object-fit: contain;
+    /* Garante que a imagem caiba sem cortar */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra para as imagens internas */
+    margin-bottom: 0;
+    /* Resetar margin-bottom genérico de img */
+}
+
+.modal-gallery-css iframe {
+    width: 100%;
+    height: 400px;
+    /* Altura para os vídeos no modal */
+    border-radius: 8px;
+}
+
+.modal-css-caption {
+    font-size: 1.1em;
+    color: #555555;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.modal-css-description {
+    font-size: 1em;
+    color: #333333;
+    line-height: 1.6;
+    text-align: justify;
+    /* Justifica o texto da descrição */
+    max-width: 600px;
+    /* Limita a largura da descrição */
+}
+
+
+/* Responsividade para o modal CSS */
+@media (max-width: 768px) {
+    .modal-css-content {
+        max-width: 95%;
+        padding: 1em;
+    }
+
+    .close-button-css {
+        font-size: 30px;
+        top: 5px;
+        right: 15px;
+    }
+
+    .modal-gallery-css img {
+        max-height: 300px;
+    }
+
+    .modal-gallery-css iframe {
+        height: 250px;
+    }
+
+    .modal-css-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .modal-css-caption,
+    .modal-css-description {
+        font-size: 0.95em;
+    }
+}
+
+
+/* --- Estilos para a página "Sobre Mim" (sobre.html) --- */
+
+/* Adaptação das classes existentes para as seções "Sobre Mim" */
+.about-section {
+    padding: 4em 0;
+    /* Ajuste para mais espaço nas seções */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+    /* Garante altura mínima para cada seção */
+}
+
+.about-section .section-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Duas colunas para texto e talvez uma imagem */
+    gap: 3em;
+    /* Espaço entre as colunas */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
+    align-items: center;
+}
+
+.about-section.alternate-background {
+    background-color: #E6E6E6;
+    /* Cor de fundo ligeiramente mais escura para seções alternadas */
+}
+
+.about-section .section-texto {
+    max-width: 600px;
+    /* Limita a largura do texto para melhor leitura */
+    text-align: left;
+    /* Alinha o texto à esquerda */
+}
+
+.about-section .section-texto h2 {
+    margin-bottom: 0.8em;
+    color: #000000;
+    /* Títulos em preto */
+}
+
+.about-section .section-texto p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+.about-section .section-texto ul {
+    list-style: none;
+    /* Remove os marcadores de lista padrão */
+    padding: 0;
+    margin: 1.5em 0;
+}
+
+.about-section .section-texto ul li {
+    background: url('../assets/icons/bullet_point.svg') no-repeat left center;
+    /* Exemplo de bullet point personalizado (substitua pelo seu ícone se tiver) */
+    background-size: 1.2em;
+    padding-left: 1.8em;
+    /* Espaço para o ícone */
+    margin-bottom: 0.8em;
+    line-height: 1.4;
+    color: #333333;
+    /* Cor do texto da lista */
+}
+
+/* Para inverter a ordem das colunas em seções alternadas */
+.about-section .section-container.reverse-columns {
+    grid-template-areas: "media-card texto-area";
+    grid-template-columns: 1fr 1fr;
+    /* Garante que a ordem visual seja invertida */
+}
+
+/* Defina as áreas para grid-template-areas (se não for usar, pode remover) */
+.about-section .section-texto {
+    grid-area: texto-area;
+}
+
+.about-section .portfolio-media-card {
+    grid-area: media-card;
+    width: 100%;
+    max-width: 450px;
+    /* Adapta a largura dos cards de mídia na página Sobre Mim */
+    margin: 0 auto;
+    /* Centraliza o card de mídia */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Sombra mais sutil */
+    border-radius: 10px;
+}
+
+.about-section .portfolio-media-card img {
+    height: 350px;
+    /* Ajusta a altura da imagem no card */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* Media Queries para Responsividade da página Sobre Mim */
+@media (max-width: 900px) {
+    .about-section .section-container {
+        grid-template-columns: 1fr;
+        /* Uma coluna em telas menores */
+        gap: 2em;
+        /* Reduz o espaço */
+    }
+
+    .about-section .section-container.reverse-columns {
+        grid-template-areas: none;
+        /* Remove a ordem invertida para empilhar */
+        grid-template-columns: 1fr;
+    }
+
+    .about-section .section-texto {
+        text-align: center;
+        /* Centraliza texto em telas menores */
+    }
+
+    .about-section .section-texto ul {
+        text-align: left;
+        /* Mantém a lista alinhada à esquerda, mas o bloco centralizado */
+        padding-left: 1.8em;
+        /* Ajusta o padding para o bullet */
+    }
+
+    .about-section .section-texto ul li {
+        background-position: 0 center;
+        /* Alinha o bullet na esquerda */
+    }
+
+    .about-section .portfolio-media-card {
+        order: -1;
+        /* Coloca a imagem antes do texto no modo de coluna única */
+    }
+
+    .about-section #introducao-sobre .section-container .portfolio-media-card {
+        order: unset;
+        /* Mantém a ordem padrão para a seção de introdução se tiver imagem */
     }
 }
