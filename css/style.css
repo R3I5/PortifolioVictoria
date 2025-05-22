@@ -39,20 +39,37 @@ header {
     /* Aplicação da paleta: Header em preto */
     color: #F2F2F2;
     /* Aplicação da paleta: Texto do header em cinza muito claro */
-    padding: 0.5em 0;
-    text-align: center;
+    padding: 0.5em 0; /* Padding vertical, horizontal será controlado pelo .header-content */
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    /* Removido text-align: center; daqui */
+}
+
+/* Novo contêiner para alinhar título e navegação */
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Empurra os itens para as extremidades */
+    align-items: center; /* Centraliza verticalmente */
+    max-width: 1200px; /* Largura máxima do conteúdo do header */
+    margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+    padding: 0 2em; /* Padding horizontal para o conteúdo do header */
+}
+
+header h1 {
+    margin: 0; /* Remove margem padrão do h1 */
+    font-size: 1.8em; /* Ajuste o tamanho da fonte se necessário */
+    white-space: nowrap; /* Evita que o título quebre em duas linhas */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex; /* Para alinhar os links horizontalmente */
 }
 
 nav ul li {
-    display: inline-block;
+    display: inline-block; /* Mantém a exibição em linha */
     margin: 0 1em;
 }
 
@@ -60,7 +77,8 @@ nav a {
     color: #F2F2F2;
     /* Aplicação da paleta: Links do header em cinza muito claro */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 0.2em; /* Espaço para o underline */
 }
 
 nav a:hover {
@@ -68,6 +86,107 @@ nav a:hover {
     /* Aplicação da paleta: Hover dos links do header em bege claro */
 }
 
+/* Indicador de página ativa */
+.nav-active {
+    color: #B6B09F !important; /* Cor bege claro para a página ativa, use !important para garantir */
+    border-bottom: 2px solid #B6B09F; /* Sublinhado para a página ativa */
+}
+
+
+/* --- NOVOS ESTILOS PARA O MENU HAMBÚRGUER --- */
+
+/* Esconde o checkbox real */
+#menu-toggle {
+    display: none;
+}
+
+/* Estilo do ícone do hambúrguer (o label) */
+.menu-toggle-label {
+    display: none; /* Escondido por padrão em desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    /* Posição relativa ao header-content em mobile */
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+}
+
+.menu-toggle-label span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #F2F2F2; /* Cor das barras do hambúrguer */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilos para o menu de navegação em telas menores */
+@media (max-width: 768px) {
+    .header-content {
+        justify-content: space-between; /* Garante espaço entre título e hambúrguer */
+        padding: 0 1.5em; /* Ajusta padding horizontal para mobile */
+    }
+
+    /* Exibe o ícone do hambúrguer em telas pequenas */
+    .menu-toggle-label {
+        display: flex;
+    }
+
+    nav ul {
+        display: none; /* Esconde o menu por padrão em mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: #000000; /* Fundo do menu quando aberto */
+        position: absolute;
+        top: 100%; /* Abaixo do header */
+        left: 0;
+        padding: 1em 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0; /* Começa fechado */
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    nav ul li {
+        display: block; /* Itens da lista em coluna */
+        margin: 0;
+    }
+
+    nav ul li a {
+        padding: 0.8em 1.5em;
+        display: block;
+        text-align: center;
+        border-bottom: none; /* Remove o underline do mobile */
+    }
+    
+    .nav-active {
+        border-bottom: none !important; /* Remove o underline ativo no mobile */
+    }
+
+    /* Quando o checkbox é marcado, mostra o menu */
+    #menu-toggle:checked ~ nav ul {
+        display: flex;
+        max-height: 300px; /* Altura suficiente para o menu (ajuste se necessário) */
+        opacity: 1;
+    }
+
+    /* Animação do ícone do hambúrguer para 'X' */
+    #menu-toggle:checked ~ .menu-toggle-label span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    #menu-toggle:checked ~ .menu-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .menu-toggle-label span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+}
+
+/* O resto do seu CSS permanece o mesmo */
 main {
     margin-top: 3em;
     padding: 0;
@@ -325,13 +444,7 @@ footer {
         text-align: center;
     }
 
-    nav ul li {
-        margin: 0 0.5em;
-    }
-
-    header {
-        padding: 0.8em 0;
-    }
+    /* As regras de nav ul li e header dentro desta media query já estão atualizadas acima */
 
     main {
         margin-top: 4.5em;
