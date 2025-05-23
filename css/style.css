@@ -7,9 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #F2F2F2;
-    /* Aplicação da paleta: Fundo principal */
     color: #000000;
-    /* Aplicação da paleta: Cor do texto principal */
 }
 
 h1,
@@ -18,16 +16,9 @@ h3,
 h4,
 h5,
 h6 {
+    /* Esta regra geral definia h1 para preto */
     font-family: 'League Spartan', sans-serif;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
     color: #000000;
-    /* Títulos de seção em preto */
 }
 
 header {
@@ -36,157 +27,83 @@ header {
     left: 0;
     width: 100%;
     background-color: #000000;
-    /* Aplicação da paleta: Header em preto */
     color: #F2F2F2;
-    /* Aplicação da paleta: Texto do header em cinza muito claro */
-    padding: 0.5em 0; /* Padding vertical, horizontal será controlado pelo .header-content */
+    /* Cor padrão para texto dentro do header */
+    padding: 0.5em 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    /* Removido text-align: center; daqui */
 }
 
-/* Novo contêiner para alinhar título e navegação */
 .header-content {
     display: flex;
-    justify-content: space-between; /* Empurra os itens para as extremidades */
-    align-items: center; /* Centraliza verticalmente */
-    max-width: 1200px; /* Largura máxima do conteúdo do header */
-    margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
-    padding: 0 2em; /* Padding horizontal para o conteúdo do header */
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
 }
 
 header h1 {
-    margin: 0; /* Remove margem padrão do h1 */
-    font-size: 1.8em; /* Ajuste o tamanho da fonte se necessário */
-    white-space: nowrap; /* Evita que o título quebre em duas linhas */
+    /* MODIFICADO AQUI */
+    margin: 0;
+    font-size: 1.8em;
+    white-space: nowrap;
+    color: #F2F2F2;
+    /* Garante que o H1 no header seja visível */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Para alinhar os links horizontalmente */
+    display: flex;
 }
 
 nav ul li {
-    display: inline-block; /* Mantém a exibição em linha */
+    display: inline-block;
     margin: 0 1em;
 }
 
 nav a {
     color: #F2F2F2;
-    /* Aplicação da paleta: Links do header em cinza muito claro */
+    /* Cor dos links da navegação */
     text-decoration: none;
     transition: color 0.3s ease, border-bottom 0.3s ease;
-    padding-bottom: 0.2em; /* Espaço para o underline */
+    padding-bottom: 0.2em;
 }
 
 nav a:hover {
     color: #EAE4D5;
-    /* Aplicação da paleta: Hover dos links do header em bege claro */
 }
 
-/* Indicador de página ativa */
 .nav-active {
-    color: #B6B09F !important; /* Cor bege claro para a página ativa, use !important para garantir */
-    border-bottom: 2px solid #B6B09F; /* Sublinhado para a página ativa */
+    color: #B6B09F !important;
+    border-bottom: 2px solid #B6B09F;
 }
 
-
-/* --- NOVOS ESTILOS PARA O MENU HAMBÚRGUER --- */
-
-/* Esconde o checkbox real */
 #menu-toggle {
     display: none;
 }
 
-/* Estilo do ícone do hambúrguer (o label) */
 .menu-toggle-label {
-    display: none; /* Escondido por padrão em desktop */
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
     height: 25px;
     cursor: pointer;
-    /* Posição relativa ao header-content em mobile */
-    z-index: 1001; /* Garante que fique acima de outros elementos */
+    z-index: 1001;
 }
 
 .menu-toggle-label span {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #F2F2F2; /* Cor das barras do hambúrguer */
+    background-color: #F2F2F2;
     border-radius: 2px;
     transition: all 0.3s ease-in-out;
 }
 
-/* Estilos para o menu de navegação em telas menores */
-@media (max-width: 768px) {
-    .header-content {
-        justify-content: space-between; /* Garante espaço entre título e hambúrguer */
-        padding: 0 1.5em; /* Ajusta padding horizontal para mobile */
-    }
-
-    /* Exibe o ícone do hambúrguer em telas pequenas */
-    .menu-toggle-label {
-        display: flex;
-    }
-
-    nav ul {
-        display: none; /* Esconde o menu por padrão em mobile */
-        flex-direction: column;
-        width: 100%;
-        background-color: #000000; /* Fundo do menu quando aberto */
-        position: absolute;
-        top: 100%; /* Abaixo do header */
-        left: 0;
-        padding: 1em 0;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0; /* Começa fechado */
-        overflow: hidden;
-        opacity: 0;
-    }
-
-    nav ul li {
-        display: block; /* Itens da lista em coluna */
-        margin: 0;
-    }
-
-    nav ul li a {
-        padding: 0.8em 1.5em;
-        display: block;
-        text-align: center;
-        border-bottom: none; /* Remove o underline do mobile */
-    }
-    
-    .nav-active {
-        border-bottom: none !important; /* Remove o underline ativo no mobile */
-    }
-
-    /* Quando o checkbox é marcado, mostra o menu */
-    #menu-toggle:checked ~ nav ul {
-        display: flex;
-        max-height: 300px; /* Altura suficiente para o menu (ajuste se necessário) */
-        opacity: 1;
-    }
-
-    /* Animação do ícone do hambúrguer para 'X' */
-    #menu-toggle:checked ~ .menu-toggle-label span:nth-child(1) {
-        transform: translateY(11px) rotate(45deg);
-    }
-
-    #menu-toggle:checked ~ .menu-toggle-label span:nth-child(2) {
-        opacity: 0;
-    }
-
-    #menu-toggle:checked ~ .menu-toggle-label span:nth-child(3) {
-        transform: translateY(-11px) rotate(-45deg);
-    }
-}
-
-/* O resto do seu CSS permanece o mesmo */
 main {
     margin-top: 3em;
     padding: 0;
@@ -201,12 +118,12 @@ section {
     padding: 2em;
     box-sizing: border-box;
     background-color: #F2F2F2;
+    scroll-margin-top: 3.5em;
 }
 
 .section-container {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    /* Texto (maior) e mídia (menor) */
     align-items: center;
     gap: 3em;
     max-width: 1100px;
@@ -214,15 +131,13 @@ section {
     padding: 1em;
 }
 
-#sobre .section-container,
-#contato .section-container {
+section#sobre .section-container,
+section#contato .section-container {
     grid-template-columns: 1fr 1.2fr;
-    /* Inverte a ordem para imagem à esquerda */
 }
 
 .section-container.reverse-columns {
     grid-template-columns: 1fr 1.2fr;
-    /* Inverte para mídia à esquerda */
 }
 
 .section-texto {
@@ -232,14 +147,14 @@ section {
 .section-texto h2 {
     font-size: 2rem;
     margin-bottom: 0.5em;
-    color: #000000;
 }
 
 .section-texto p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1em;
-    color: #000000;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .section-imagem {
@@ -272,12 +187,10 @@ form label {
     font-weight: bold;
     margin-bottom: 0.2em;
     text-align: left;
-    color: #000000;
 }
 
 form input[type="text"],
 form input[type="email"],
-form input[type="assunto"],
 form textarea {
     padding: 0.8em;
     border: 1px solid #B6B09F;
@@ -285,7 +198,6 @@ form textarea {
     font-size: 1em;
     width: 100%;
     box-sizing: border-box;
-    color: #000000;
     background-color: #F2F2F2;
 }
 
@@ -316,17 +228,7 @@ form button:hover,
     transform: translateY(-2px);
 }
 
-.scroll-down {
-    position: relative;
-    margin: 2rem auto 0 auto;
-    font-size: 2rem;
-    color: #B6B09F;
-    text-decoration: none;
-    animation: bounce 2s infinite;
-    display: block;
-    width: fit-content;
-}
-
+.scroll-down,
 .scroll-up {
     position: relative;
     margin: 2rem auto 0 auto;
@@ -336,10 +238,6 @@ form button:hover,
     animation: bounce 2s infinite;
     display: block;
     width: fit-content;
-}
-
-section {
-    scroll-margin-top: 3.5em;
 }
 
 .contact-info {
@@ -392,11 +290,6 @@ section {
 .redes-sociais {
     margin-top: 2em;
     font-weight: bold;
-    color: #000000;
-}
-
-.form-link-text {
-    display: none;
 }
 
 @keyframes bounce {
@@ -418,33 +311,64 @@ footer {
     text-align: center;
 }
 
-/* Media Queries para Responsividade */
+/* --- Media Queries para Responsividade Geral --- */
 @media (max-width: 768px) {
-    .section-container {
-        grid-template-columns: 1fr;
-        gap: 1.5em;
-        padding: 1em;
+    .header-content {
+        padding: 0 1.5em;
     }
 
-    .section-container.reverse-columns {
-        grid-template-columns: 1fr;
+    .menu-toggle-label {
+        display: flex;
     }
 
-    .section-texto,
-    .section-imagem {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #000000;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1em 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 0;
+    }
+
+    nav ul li a {
+        padding: 0.8em 1.5em;
+        display: block;
         text-align: center;
     }
 
-    .section-texto h2 {
-        font-size: 1.8rem;
+    .nav-active {
+        border-bottom: none !important;
     }
 
-    .section-texto p {
-        font-size: 1em;
-        text-align: center;
+    #menu-toggle:checked~nav ul {
+        display: flex;
+        max-height: 300px;
+        opacity: 1;
     }
 
-    /* As regras de nav ul li e header dentro desta media query já estão atualizadas acima */
+    #menu-toggle:checked~.menu-toggle-label span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    #menu-toggle:checked~.menu-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked~.menu-toggle-label span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
 
     main {
         margin-top: 4.5em;
@@ -455,21 +379,40 @@ footer {
         min-height: auto;
     }
 
+    .section-container,
+    section#sobre .section-container,
+    section#contato .section-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5em;
+        padding: 1em;
+    }
+
+    .section-texto,
+    .section-imagem {
+        text-align: center;
+    }
+
+    .section-texto h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .section-texto p {
+        font-size: 1em;
+        text-align: center;
+    }
+
     form {
         max-width: 100%;
     }
 
-    .social-icons {
-        justify-content: center;
-    }
-
-    .contact-info,
-    .form-link-text {
-        text-align: center;
-    }
-
+    .social-icons,
     .contact-link {
         justify-content: center;
+    }
+
+    .contact-info {
+        text-align: center;
     }
 
     .scroll-down,
@@ -479,7 +422,7 @@ footer {
     }
 }
 
-/* Ajustes para a página de contato dedicada (contato.html) */
+/* --- Estilos para a página de Contato Dedicada (contato.html) --- */
 #contact-form-page {
     background-color: #F2F2F2;
 }
@@ -488,47 +431,56 @@ footer {
     grid-template-columns: 1fr 1.2fr;
 }
 
+#contact-form-page .section-texto p {
+    text-align: left;
+}
+
 #contact-form-page form {
     max-width: 500px;
-    margin: 2em auto;
+    margin: 1.5em 0 0 0;
 }
 
 .form-page-text {
     margin-top: 2em;
-    text-align: center;
-    color: #000000;
+    text-align: left;
 }
 
 .form-page-social {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 @media (max-width: 768px) {
     #contact-form-page .section-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+    }
+
+    #contact-form-page .section-texto p,
+    #contact-form-page .form-page-text {
+        text-align: center;
     }
 
     #contact-form-page form {
         max-width: 100%;
+        margin-top: 1.5em;
+    }
+
+    #contact-form-page .form-page-social {
+        justify-content: center;
     }
 }
 
-
 /* --- ESTILOS ESPECÍFICOS DO PORTFÓLIO --- */
-
 .portfolio-section {
     min-height: auto;
     padding-top: 4em;
     padding-bottom: 4em;
 }
 
-/* GARANTE A CENTRALIZAÇÃO DO TEXTO INTRODUTÓRIO NO PORTFÓLIO */
 #top.portfolio-section .section-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
 #top.portfolio-section .section-texto {
@@ -542,8 +494,6 @@ footer {
     text-align: center;
 }
 
-
-/* Estilo para o container de mídia (imagem/vídeo) que é o "card" */
 .portfolio-media-card {
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -573,7 +523,6 @@ footer {
     box-shadow: none;
 }
 
-/* Estilo para vídeos incorporados dentro do card */
 .portfolio-media-card.video-card iframe {
     width: 100%;
     height: 300px;
@@ -581,7 +530,6 @@ footer {
     margin-bottom: 0.8em;
 }
 
-/* Estilo para a legenda da mídia */
 .media-caption {
     font-size: 0.9em;
     color: #555555;
@@ -589,13 +537,11 @@ footer {
     margin-bottom: 0;
 }
 
-/* Ajustes para o h2 nas seções de projeto (não a introdutória) */
-.portfolio-section .section-texto h2 {
-    margin-bottom: 0.5em;
+.portfolio-section:not(#top) .section-texto h2,
+.portfolio-section:not(#top) .section-texto p {
     text-align: left;
 }
 
-/* Media Queries para responsividade específica do portfólio */
 @media (max-width: 768px) {
 
     .portfolio-media-card img,
@@ -608,24 +554,22 @@ footer {
         padding-bottom: 2.5em;
     }
 
-    #top.portfolio-section .section-texto {
-        text-align: center;
+    .portfolio-section:not(#top) .section-texto h2,
+    .portfolio-section:not(#top) .section-texto p {
+        text-align: left;
     }
 }
 
 /* --- Estilos para o Modal/Lightbox (CSS Puro) --- */
 .modal-css {
     visibility: hidden;
-    /* Escondido por padrão */
     opacity: 0;
-    /* Começa transparente */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    /* Fundo preto semi-transparente */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -633,7 +577,6 @@ footer {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Quando o modal é "alvo" da URL (clicado) */
 .modal-css:target {
     visibility: visible;
     opacity: 1;
@@ -644,17 +587,12 @@ footer {
     padding: 2em;
     border-radius: 10px;
     max-width: 80%;
-    /* Largura máxima do card */
     max-height: 90%;
-    /* Altura máxima do card */
     overflow-y: auto;
-    /* Permite rolagem dentro do card se o conteúdo for grande */
     position: relative;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     text-align: center;
-    /* Centraliza o texto dentro do modal content */
     display: flex;
-    /* Para centralizar os itens internos */
     flex-direction: column;
     align-items: center;
 }
@@ -668,10 +606,8 @@ footer {
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
-    /* Remover sublinhado do link */
     transition: color 0.3s ease;
     z-index: 10;
-    /* Para garantir que fique acima do conteúdo */
 }
 
 .close-button-css:hover,
@@ -688,35 +624,26 @@ footer {
 .modal-gallery-css {
     display: flex;
     flex-direction: column;
-    /* Imagens uma abaixo da outra */
     align-items: center;
     gap: 1.5em;
-    /* Espaço entre as imagens */
     width: 100%;
     max-width: 700px;
-    /* Limita a largura da galeria */
     margin-bottom: 1.5em;
 }
 
 .modal-gallery-css img {
     max-width: 100%;
     height: auto;
-    /* Altura flexível para imagens no modal */
     max-height: 500px;
-    /* Limita a altura das imagens */
     object-fit: contain;
-    /* Garante que a imagem caiba sem cortar */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Sombra para as imagens internas */
     margin-bottom: 0;
-    /* Resetar margin-bottom genérico de img */
 }
 
 .modal-gallery-css iframe {
     width: 100%;
     height: 400px;
-    /* Altura para os vídeos no modal */
     border-radius: 8px;
 }
 
@@ -733,13 +660,9 @@ footer {
     color: #333333;
     line-height: 1.6;
     text-align: justify;
-    /* Justifica o texto da descrição */
     max-width: 600px;
-    /* Limita a largura da descrição */
 }
 
-
-/* Responsividade para o modal CSS */
 @media (max-width: 768px) {
     .modal-css-content {
         max-width: 95%;
@@ -770,28 +693,21 @@ footer {
     }
 }
 
-
 /* --- Estilos para a página "Sobre Mim" (sobre.html) --- */
-
-/* Adaptação das classes existentes para as seções "Sobre Mim" */
 .about-section {
     padding: 4em 0;
-    /* Ajuste para mais espaço nas seções */
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     min-height: 50vh;
-    /* Garante altura mínima para cada seção */
 }
 
 .about-section .section-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Duas colunas para texto e talvez uma imagem */
     gap: 3em;
-    /* Espaço entre as colunas */
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 2em;
     align-items: center;
@@ -799,117 +715,107 @@ footer {
 
 .about-section.alternate-background {
     background-color: #E6E6E6;
-    /* Cor de fundo ligeiramente mais escura para seções alternadas */
 }
 
 .about-section .section-texto {
     max-width: 600px;
-    /* Limita a largura do texto para melhor leitura */
     text-align: left;
-    /* Alinha o texto à esquerda */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-section .section-texto h2 {
     margin-bottom: 0.8em;
-    color: #000000;
-    /* Títulos em preto */
+    text-align: left;
 }
 
 .about-section .section-texto p {
     margin-bottom: 1em;
     line-height: 1.6;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .about-section .section-texto ul {
     list-style: none;
-    /* Remove os marcadores de lista padrão */
-    padding: 0;
+    padding-left: 0;
     margin: 1.5em 0;
+    text-align: left;
 }
 
 .about-section .section-texto ul li {
-    background: url('../assets/icons/bullet_point.svg') no-repeat left center;
-    /* Exemplo de bullet point personalizado (substitua pelo seu ícone se tiver) */
-    background-size: 1.2em;
-    padding-left: 1.8em;
-    /* Espaço para o ícone */
+    position: relative;
+    padding-left: 2em;
     margin-bottom: 0.8em;
     line-height: 1.4;
     color: #333333;
-    /* Cor do texto da lista */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-/* Para inverter a ordem das colunas em seções alternadas */
-.about-section .section-container.reverse-columns {
-    grid-template-areas: "media-card texto-area";
-    grid-template-columns: 1fr 1fr;
-    /* Garante que a ordem visual seja invertida */
+.about-section .section-texto ul li::before {
+    content: "";
+    background-image: url('../assets/icons/bullet_point.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+    left: 0;
+    top: calc((1.4em - 1.2em) / 2 + 0.05em);
 }
 
-/* Defina as áreas para grid-template-areas (se não for usar, pode remover) */
-.about-section .section-texto {
-    grid-area: texto-area;
-}
-
-.about-section .portfolio-media-card {
-    grid-area: media-card;
-    width: 100%;
-    max-width: 450px;
-    /* Adapta a largura dos cards de mídia na página Sobre Mim */
-    margin: 0 auto;
-    /* Centraliza o card de mídia */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    /* Sombra mais sutil */
-    border-radius: 10px;
-}
-
-.about-section .portfolio-media-card img {
-    height: 350px;
-    /* Ajusta a altura da imagem no card */
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
-/* Media Queries para Responsividade da página Sobre Mim */
 @media (max-width: 900px) {
     .about-section .section-container {
-        grid-template-columns: 1fr;
-        /* Uma coluna em telas menores */
+        grid-template-columns: 1fr !important;
         gap: 2em;
-        /* Reduz o espaço */
-    }
-
-    .about-section .section-container.reverse-columns {
-        grid-template-areas: none;
-        /* Remove a ordem invertida para empilhar */
-        grid-template-columns: 1fr;
+        padding: 0 1em;
     }
 
     .about-section .section-texto {
+        max-width: 100%;
+    }
+
+    .about-section .section-texto h2 {
         text-align: center;
-        /* Centraliza texto em telas menores */
     }
 
-    .about-section .section-texto ul {
+    .about-section .section-texto p {
         text-align: left;
-        /* Mantém a lista alinhada à esquerda, mas o bloco centralizado */
-        padding-left: 1.8em;
-        /* Ajusta o padding para o bullet */
-    }
-
-    .about-section .section-texto ul li {
-        background-position: 0 center;
-        /* Alinha o bullet na esquerda */
     }
 
     .about-section .portfolio-media-card {
+        /* Este seletor pode ser removido se .portfolio-media-card não for usado em .about-section */
         order: -1;
-        /* Coloca a imagem antes do texto no modo de coluna única */
     }
 
-    .about-section #introducao-sobre .section-container .portfolio-media-card {
+    .about-section#introducao-sobre .portfolio-media-card {
         order: unset;
-        /* Mantém a ordem padrão para a seção de introdução se tiver imagem */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section .section-container {
+        padding: 0 0.5em;
+        gap: 1.5em;
+    }
+
+    .about-section .section-texto h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-section .section-texto p,
+    .about-section .section-texto ul li {
+        font-size: 0.95rem;
+    }
+
+    .about-section .section-texto ul li {
+        padding-left: 1.8em;
+    }
+
+    .about-section .section-texto ul li::before {
+        top: 0.1em;
     }
 }
